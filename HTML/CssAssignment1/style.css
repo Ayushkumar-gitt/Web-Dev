@@ -1,17 +1,22 @@
+h2,H1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 #div1 {
-    background-color: brown;
+    background-color: rgb(5, 37, 133);
     text-align: center;
-    height: 110px;
+    height: 100px;
     padding: 30px;
 }
 
 #webdev {
     font-style: italic;
     margin: 5px;
+    color: white;
 }
 
 #firsth {
     margin-bottom: 0%;
+    color: white;
 }
 
 .center {
@@ -24,6 +29,7 @@
     width: 1000px;
     margin: 0 auto;
     border-radius: 10px;
+    padding: 20px;
 }
 
 #edu {
@@ -33,19 +39,70 @@
     background-color: rgb(215, 240, 250);
     margin: 0 auto;
     text-align: center;
+    border-radius: 10px;
 }
 
 .edu_indiv {
-    padding: 5px;
-    background-color: whitesmoke;
+    padding: 10px;
+    background-color: white;
     width: 600px;
     margin: 0 auto;
     margin-bottom: 10px;
 }
 
 .edu_indiv2 {
-    padding: 5px;
-    background-color: green;
+    padding: 10px;
+    background-color: white;
     width: 600px;
     margin: 0 auto;
+}
+#skills{
+    padding: 10px;
+    background-color: rgb(246, 237, 193);
+    text-align: center;
+    margin: 0 auto;
+    width: 1025px;
+    border-radius: 10px;
+}
+
+.skillins{
+    width: 600px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;    
+    margin-bottom: 5px;
+    
+}
+#projects{
+    padding: 10px;
+    width: 1025px;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: lavender;
+}
+.projin{
+    width: 600px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;    
+    margin-bottom: 5px;
+}
+#contact{
+    padding: 10px;
+    width: 1025px;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(228, 251, 235);
+}
+.contactin{
+    width: 600px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;    
+    margin-bottom: 5px;
 }
