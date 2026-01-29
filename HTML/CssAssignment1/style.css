@@ -1,0 +1,51 @@
+#div1 {
+    background-color: brown;
+    text-align: center;
+    height: 110px;
+    padding: 30px;
+}
+
+#webdev {
+    font-style: italic;
+    margin: 5px;
+}
+
+#firsth {
+    margin-bottom: 0%;
+}
+
+.center {
+    text-align: center;
+}
+
+#hel {
+    padding-top: 1px;
+    background-color: whitesmoke;
+    width: 1000px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+#edu {
+    padding: 20px;
+    height: auto;
+    width: 1000px;
+    background-color: rgb(215, 240, 250);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.edu_indiv {
+    padding: 5px;
+    background-color: whitesmoke;
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.edu_indiv2 {
+    padding: 5px;
+    background-color: green;
+    width: 600px;
+    margin: 0 auto;
+}
