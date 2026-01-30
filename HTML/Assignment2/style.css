@@ -10,7 +10,7 @@ body{
 #btn{
     background-color: transparent;
     border: transparent;
-    background-color: rgb(255, 140, 0);
+    background: linear-gradient(to right, orange,#E07445);
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 50px;
