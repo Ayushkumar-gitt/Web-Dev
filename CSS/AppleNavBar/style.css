@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+#navbar{
+    display: flex;
+    height: 70px;
+    background-color: rgb(27, 27, 27);
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+#navbar h4{
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 400;
+}
+#center{
+    text-align: center;
+    background-image: url(./iphoneimg.jpg);
+    padding-top: 50px;    
+    height: 80%;
+    background-size: cover;
+    
+}
+#center h1{
+    color: white;
+    font-size: 35px;
+
+}
+h5{
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+}
+#btns{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center ;
+    bottom: 5%;
+    left: 43%;
+}
+.btn{
+    margin-top: 20px;
+    background-color: transparent;
+    color: aliceblue;
+    border: solid 1px;
+    padding: 11px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    border-color: #0173E6;
+}
+#learnmore{
+    background-color: #0173E6;
+    
+}
