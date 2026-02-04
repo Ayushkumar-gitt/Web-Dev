@@ -5,25 +5,49 @@
 body{
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color: rgb(113, 33, 33);
 }
-#parent{
+#main{
     display: flex;
 }
-#box1{
-    background-color: blueviolet;
-    height: 200px;
-    width: 200px;
+#card{
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: white;
+    /* object-fit: cover; */
+    position: relative;
+    overflow: hidden;
+}
+#card img{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+#box{
+    height: 40%;
+    width: 100%;
+    bottom: -40%;
+    position: absolute;
+    background: linear-gradient(transparent,black);
+    display: flex;
+    /* gap: 0px; */
 }
 
-#box2{
-    background-color: bisque;
-    height: 200px;
-    width: 200px;
+#card:hover #box{
+    bottom: -15%;
+    transition: all ease 0.3s;
+    justify-content: space-between;
 }
 
-#box3{
-    background-color: cadetblue;
-    height: 200px;
-    width: 200px;
+h4{
+    padding: 10px;
+    font-size: 22px;
+    color: aliceblue;
+}
+
+i{
+    color: white ;
 }
