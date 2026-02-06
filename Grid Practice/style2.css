@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 90px 1fr 0.5fr 0.5fr;
+    grid-template-areas: "header header header"
+                         "section section section"
+                         "divleft btmup divright"
+                         "divleft btmdwn divright";
+}
+#div1{
+    grid-area: header;
+    background-color: bisque;
+}
+#div2{
+    grid-area: section;
+    background-color: brown;
+}
+#div3{
+    grid-area: divleft;
+    background-color: cadetblue;
+}
+#div4{
+    grid-area: divright;
+    background-color: saddlebrown;
+}
+#div5{
+    grid-area: btmup;
+    background-color: navajowhite;
+}
+#div6{
+    grid-area: btmdwn;
+    background-color: seagreen;
+}
