@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+@mixin mrgn(){
+    margin: 50px;
+}
+#dv{
+    height: 400px;
+    width: 990px;
+    background-color: red;
+    @include mrgn();
+    #au{
+        font-size: 200px;
+        @include mrgn()
+    }
+}
