@@ -31,6 +31,15 @@ function unlin(...number){
     console.log("Ayush")
 })();
 
+
+function runTwice(fun){
+    fun()
+    fun()
+}
+function hello(){
+    console.log("hello wor")
+}
+runTwice(hello)
 // if (10 > 5 || 10 < 20 || 10 === 10) {
 //     console.log("true")
 // }

@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+html,body{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.card{
+    height: 12rem;
+    width: 32rem;
+    border-radius: 1rem;
+    background-color: aliceblue;
+    padding: 3rem;
+}
+.outer{
+    margin-top: 2rem;
+    height: 1.4rem;
+    border-radius: 3.2rem;
+    width: 100%;
+    background-color: rgb(159, 159, 159);
+}
+.inner{
+    height: 100%;
+    border-radius: 3.2rem;
+    width: 0%;
+    background-color: green;
+}
+button{
+    border-radius: 0.4rem;
+    padding: 1rem 1.4rem;
+    color: white;
+    background-color: green;
+    font-weight: 600;
+    font-size: 1rem;
+}
+h1{
+    font-size: 3rem;
+}
+p{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+p span{
+    color: royalblue;
+}
+.bottom{
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+button:active{
+    scale: 0.95;
+
+}
