@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+main{
+    color: wheat;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    /* overflow: auto; */
+}
+.all-reels::-webkit-scrollbar{
+    display: none;
+}
+.all-reels{
+    border-radius: 1rem;
+    margin: auto;
+    height: 94%;
+    width: 30rem;
+    padding: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+    /* background-color: seagreen; */
+}
+.reels{
+    border-radius: 1rem;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 1.7rem;
+    /* background-color: saddlebrown; */
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+.reels video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* overflow: hidden; */
+    border-radius: 1rem;
+}
+.reels .bottom{
+    position: absolute;
+    width: 100%;
+    margin-right: 1rem;
+    color: white;
+    display: flex;
+    bottom: 0;
+    padding: 20px 0px;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.056),rgba(0, 0, 0, 0.736));
+}
+.ri-heart-3-fill{
+    color: red;
+}
+.reels .bottom button{
+    position: absolute  ;
+        right: 5%;
+}
+.right{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.2rem;
+    justify-content: start;
+}
+.bottom #profilepic{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+
+.bottom #followbtn{
+    /* height: 1.5rem; */
+    /* width: 3rem; */
+    padding: 7px 10px;
+    background-color: transparent;
+    border-radius: 1rem;
+    border: 1px solid white;
+    color: white;
+}
+.actionbtn{
+    position: absolute;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+    bottom: 25%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    right: 0;
+    /* transform: translateX(100%); */
+    width: 30px;
+    height: 40px;
+    color: white;
+}
+.actionbtn i{
+    font-size: 1.4rem;
+}
