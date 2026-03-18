@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --x: 1000px;
+    --y: 200px
+}
+
+body {
+    background-image: url(./img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.effect {
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(150px at var(--x) var(--y), transparent, rgba(0, 0, 0, 0.930));
+    
+}
