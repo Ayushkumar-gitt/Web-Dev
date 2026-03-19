@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+}
+@keyframes borderAnimate {
+    from {
+        --rotate: 0deg;
+    }
+
+    to {
+        --rotate: 360deg;
+    }
+}
+@property --rotate{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.box{
+    height: 400px;
+    width: 350px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 1rem;
+    background:
+        linear-gradient(black) padding-box,
+        conic-gradient(from var(--rotate), black,black, rgba(255, 0, 0, 0.941), black) border-box;
+    border: 5px solid transparent;
+    border-width: 0px;
+    animation: borderAnimate 3s linear infinite;
+    animation-play-state: paused;
+    transition: all 0.3s linear;
+    box-shadow: 0 0 0px red;
+    text-shadow: 0 0 0px rgb(255, 0, 0);
+}
+/* h2{
+    color: whitesmoke
+} */
+.box:hover{
+    animation-play-state: running;
+    border-width: 5px;
+    box-shadow: 0 0 30px red;
+    color: rgb(213, 7, 7);
+    text-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+img{
+    object-fit: cover;
+    height: 92%;
+    width: 92%;
+    border-radius: 1rem;
+    object-position: top;
+}
+@keyframes radius {
+    from{
+        border-radius: 0%;
+        background-color: darkblue;
+    }
+    to{
+        border-radius: 40%;
+        background-color: saddlebrown;
+    }
+}
