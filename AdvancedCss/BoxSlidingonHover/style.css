@@ -10,6 +10,7 @@ html,body{
     align-items: center;
     justify-content: center;
     color: whitesmoke;
+    anchor-name: --anchorr;
 }
 
 .box{
@@ -17,17 +18,22 @@ html,body{
     width: 200px;
 }
 .anchor{
-    height: 100px;
-    width: 100px;
-    background-color: grey;
+    background-color: rgb(164, 164, 164);
     position-anchor: --anchorr;
     position: absolute;
     top: anchor(top);
+    bottom: anchor(bottom);
     left: anchor(left);
+    right: anchor(right);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    transition: all 0.3s linear;
+}
+.box:hover{
+    anchor-name: --anchorr ;
 }
 .red{
-    background-color: red;
-    anchor-name: --anchorr ;
+    background-color: salmon;
 }
 .green{
     background-color: green;
