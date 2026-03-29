@@ -1,9 +1,9 @@
-class User{
-    constructor(name,email){
+class User {
+    constructor(name, email) {
         this.name = name,
-        this.email = email
+            this.email = email
     }
-    loggedIn(){
+    loggedIn() {
         console.log("user logged in")
     }
 }
@@ -13,24 +13,37 @@ class User{
 
 //     login : function(){
 //     console.log("user logged in");
-    
+
 // }
 // }
 
-let user1 = new User("Ayush","ayush@gmail.com")
-let user2 = new User("Star","star@gmail.com")
-let user3 = new User("harsh","harsh@gmail.com")
+let user1 = new User("Ayush", "ayush@gmail.com")
+let user2 = new User("Star", "star@gmail.com")
+let user3 = new User("harsh", "harsh@gmail.com")
 
-class Car{
-    constructor(speed,brand){
+class Car {
+    constructor(speed, brand) {
         this.speed = speed,
-        this.brand = brand
+            this.brand = brand
     }
 
-    drive(){
+    drive() {
         return this.brand + this.speed
     }
 }
 
-let car1 = new Car("100","honda")
-let car2 = new Car("120","Tata")
+let car1 = new Car("100", "honda")
+let car2 = new Car("120", "Tata")
+
+var a = 14;
+const prom = new Promise((resolve, reject) => {
+    if (a < 5) {
+        resolve()
+    } else {
+        reject()
+    }
+})
+prom
+.then(resolve=> console.log("resolved")
+).catch(reject => console.log("rejected")
+)
