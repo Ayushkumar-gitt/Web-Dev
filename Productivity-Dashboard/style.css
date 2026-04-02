@@ -5,7 +5,7 @@
 }
 :root{
     --pri:#F8F4E1;
-    --sec:#451e04;
+    --sec:#3a1a04;
     --tri1:#FEBA17;
     --tri2:#74512D;
 }
@@ -108,7 +108,6 @@ section.AllEle{
 .full-todo{
     height: 100%;
     width: 100%;
-    display: block;
 }
 .todo-container{
     height: 70%;
@@ -187,4 +186,59 @@ section.AllEle{
 }
 .task button:active{
     scale: 0.96;
+}
+.task span.true{
+    background-color: red;
+    padding: 0.3rem;
+    font-size: 0.7rem;
+    border-radius: 1rem;
+    margin-left: 0.3rem;
+    opacity: 1;
+}
+.task span.false{
+    opacity: 0;
+}
+
+.full-dailyPlanner{
+    display: block;
+}
+
+.day-planner{
+    background-color: var(--tri2);
+    height: 100%;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    margin-top: 2.3rem;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+     overflow: auto;
+}
+.dayPlanner-time{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    /* background-color:--; */
+    border-radius: 0.5rem;
+    padding: 1.1rem;
+    position: relative;
+   
+}
+.dayPlanner-time p{
+    position: absolute;
+    color: --pri;
+    top: 12%;
+    left: 2.3%;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+.dayPlanner-time input{
+    outline: none;
+    width: 100%;
+    padding: 1rem 1.8rem;
+    background-color: var(--sec);
+    color: var(--pri);
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
 }
