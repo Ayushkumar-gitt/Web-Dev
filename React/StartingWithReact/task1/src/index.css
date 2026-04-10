@@ -1,0 +1,147 @@
+@font-face {
+  font-family: Aeonik;
+  src: url(assets/AeonikTRIAL-Regular.otf);
+}
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Aeonik;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+  color: white;
+  overflow: auto;
+  ::-webkit-scrollbar{display: none;}
+  background-color: white;
+}
+.nav{
+  padding: 1.5rem;
+  display: flex;
+  color: black;
+  gap: 6rem;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.nav h3{
+  margin-left: 1.5rem;
+}
+.centerthing{
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+.bookbtn{
+  padding: 0.4rem 1.2rem;
+
+  color: white;
+  background-color: black;
+  border-radius: 1rem;
+  /* border: none; */
+}
+.hero{
+  height: 100vh;
+  width: 100vw;
+  background-image: url(assets/nj3.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.center{
+  position: absolute;
+  top: 9rem;
+  left: 3rem;
+}
+.center h1{
+  font-size: 60px;
+  
+}
+.center #be{
+  font-size: 90px;
+  line-height: 0.85;
+  margin-bottom: 1.8rem;
+}
+.center p{
+  line-height: 0.2;
+  /* font-weight: 10; */
+  font-size: 14px;
+}
+.btnbox{
+  margin-top: 1.8rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 1.8rem;
+}
+.btnbox button{
+  padding: 0.6rem 1.3rem;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.belowhero{
+  padding: 1.5rem 1rem;
+}
+.text{
+  margin-left: 37rem;
+  /* background-color: rebeccapurple; */
+  padding: 1rem;
+  padding-bottom: 2rem;
+  color: black;
+  width: 60%;
+  right: 2%;
+}
+.card{
+  height: 19rem;
+  width: 30%;
+  border-radius: 1.4rem;
+  padding: 1rem;
+  background-color: rgb(2, 2, 51);
+
+}
+.card p{
+  font-size: 24px;
+}
+.cards{
+  display: flex;
+  justify-content: space-around;
+}
+.card2{
+  background-image: url(assets/NJ.jpg);
+  background-size: cover;
+  background-position: top;
+  justify-items: center;
+  align-content: end;
+}
+.card2 .glass{
+  height: 2rem;
+  width: 12rem;
+  background: linear-gradient(90deg,rgba(255, 255, 255, 0.514) , rgba(123, 14, 14, 0.852));
+  opacity: 0.85;
+  border-radius: 1rem;
+  align-content: center;
+  /* justify-content: center; */
+  text-align: center;
+  font-size: 1.21rem;
+}
+.card3{
+  background-color: rgb(214, 211, 211);
+  color: black;
+  line-height: 1.6;
+}
+.card3 .text2 h1{
+  font-size: 3.6rem;
+}
+.card3 .text2 h3{
+  font-weight: 300;
+}
+.card3 .text2 p{
+  font-weight: 100;
+  font-size: 1rem;
+}
