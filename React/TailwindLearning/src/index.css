@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    background-color: black;
+        color: white;
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+.box{
+    height: 200px ;
+    width: 300px;
+    align-content: center;
+    text-align: center;
+}
+button{
+    /* border: 1px solid white; */
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    background-color: seagreen;
+
+}
+h1{
+    font-size: 1.6rem;
+}
