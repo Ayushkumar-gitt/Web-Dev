@@ -10,10 +10,14 @@ html,body{
     background-color: black;
     color: white;
 }
+#root{
+    display: flex;
+    justify-content: center;
+}
 
 #cardbox{
-  height: 100px;
-  width: 150px;
+  height: 15rem;
+  width: 20rem;
   margin: 0.5rem;
   background-color: rebeccapurple;
   border-radius: 10px;
@@ -22,7 +26,10 @@ html,body{
   color: beige;
   padding: 0.5rem;
 }
-
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}
 .nav{
     background-color: brown;
     height: 4rem;
@@ -33,19 +40,31 @@ html,body{
     justify-content: space-between;
 }
 
-.section{
-    /* width: 50%; */
+.main{
+    /* width: 70%; */
     display: flex;
-    gap: 2rem;
-    /* background-color: seagreen; */
+    flex-direction: column;
+    /* flex-direction: row; */
+    /* gap: 12rem; */
+    
+}
+.input{
+    background-color: transparent;
+    padding: 1.3rem;
+    margin: 1rem;
+    width: 46%;
 }
 
 button{
     background-color: transparent;
     padding: 1rem;
+    width: 90%;
+    display: block; 
+    margin: 1rem auto;
     border-radius: 1rem;
     color: white;
     border: 1px solid white;
+    background-color: seagreen;
 }
 
 button:active{
