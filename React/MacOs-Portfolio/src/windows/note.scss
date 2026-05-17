@@ -1,0 +1,54 @@
+.note-window {
+    overflow: auto;
+    height: 100%;
+    padding: 1rem;
+
+    pre {
+        background-color: transparent !important;
+    }
+
+    -ms-overflow-style: none;
+    /* IE/Edge Legacy */
+    scrollbar-width: none;
+
+    /* Firefox */
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+.terminal-window {
+    height: 100%;
+
+    // overflow: auto;
+    div[name="react-console-emulator"] {
+        height: 100%;
+        width: 100%;
+        background: rgb(12, 12, 12) !important;
+        line-height: 1.6;
+
+        * {
+            line-height: inherit;
+        }
+    }
+}
+
+.resume-window {
+    height: 100%;
+    // overflow: auto;
+
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.spotify {
+    height: 100%;
+
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+}
