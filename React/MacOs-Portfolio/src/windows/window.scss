@@ -1,0 +1,62 @@
+.window {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.maincontent {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+
+    -ms-overflow-style: none;
+    /* IE/Edge Legacy */
+    scrollbar-width: none;
+
+    /* Firefox */
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+.red,
+.green,
+.yellow {
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: rgb(215, 3, 3);
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: rgb(255, 242, 0);
+}
+
+.dots {
+    padding-inline: 0.4rem;
+    display: flex;
+    // background-color: beige;
+    gap: 0.2rem;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(132, 132, 132, 0.435);
+}
+
+.title p {
+    color: rgb(236, 236, 236);
+}

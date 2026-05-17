@@ -1,0 +1,15 @@
+nav{
+    display: flex; 
+    justify-content: space-between;
+    background-color: rgba(165, 165, 165, 0.26);
+    color: white;
+    padding-inline: 1rem;
+    padding-block: 0.1rem;
+}
+nav .left ,.right{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

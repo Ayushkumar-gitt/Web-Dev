@@ -1,0 +1,58 @@
+.dock {
+    display: flex;
+    gap: 0.7rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(28, 28, 28, 0.400);
+    // background-color: rgb(71, 8, 8);
+    padding-inline: 0.90rem;
+    padding-block: 0.39rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(5px);
+
+    .icon {
+        width: 3.75rem;
+        height: 3.55rem;
+        padding: 0.65rem;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1/1;
+        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .icon:hover{
+        transform: scale(1.2) translateY(-20%);
+    }
+    .icon:hover + .icon,
+    .icon:has(+.icon:hover){
+        transform: scale(1.1) translateY(-10%);
+    }
+    .github,.cli{
+        background: black;
+    }
+    .note {
+        background: linear-gradient(to bottom, rgb(255, 179, 87), rgb(255, 153, 28))
+    }
+
+    .pdf {
+        background: linear-gradient(to bottom, rgb(255, 65, 78), rgb(255, 25, 40));
+    }
+
+    .calender,
+    .mail {
+        background: linear-gradient(to bottom, rgb(105, 94, 255), rgb(66, 52, 255));
+    }
+
+    .spotify {
+        background: linear-gradient(to bottom, rgb(78, 176, 33), rgb(53, 142, 12));
+    }
+
+    .link {
+        background: linear-gradient(to bottom, rgb(163, 97, 170), rgb(142, 33, 154));
+    }
+}
