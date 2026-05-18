@@ -2,6 +2,35 @@ import React from 'react'
 import MacWindow from './MacWindow'
 import TerminalModule from 'react-console-emulator'
 import './note.scss'
+
+const askGemini = async (...args) => {
+    const prompt = args.join(' ').trim()
+
+    if (!prompt) {
+        return "Usage: gpt <your question>"
+    }
+
+    try {
+        const response = await fetch('/api/gemini', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt })
+        })
+        const responseText = await response.text()
+        const data = responseText ? JSON.parse(responseText) : {}
+
+        if (!response.ok) {
+            return `Gemini error: ${data.error || 'Request failed'}`
+        }
+
+        return data.answer || 'Gemini did not return any text.'
+    } catch (error) {
+        return `Gemini error: ${error.message}. Make sure the API server is running and GEMINI_API_KEY is configured.`
+    }
+}
+
 const commands = (() => {
     const portfolio = {
         name: 'Ayush Kumar',
@@ -62,6 +91,21 @@ const commands = (() => {
             description: 'Echo a passed string.',
             usage: 'echo <string>',
             fn: (...args) => args.join(' ')
+        },
+        gpt: {
+            description: 'Ask Gemini a question.',
+            usage: 'gpt <question>',
+            fn: askGemini
+        },
+        gemini: {
+            description: 'Ask Gemini a question.',
+            usage: 'gemini <question>',
+            fn: askGemini
+        },
+        ask: {
+            description: 'Alias for gpt.',
+            usage: 'ask <question>',
+            fn: askGemini
         }
     }
     return cmds
@@ -82,9 +126,9 @@ const welcomeMessage = [
     "\nTip: type 'help' to list commands."
 ].join('\n')
 
-const TerminalWindow = ({ windowName, setWindowState }) => {
+const TerminalWindow = ({ windowName, setWindowState, isClosing, zIndex, bringToFront }) => {
     return (
-        <MacWindow windowName={windowName} setWindowState={setWindowState}>
+        <MacWindow windowName={windowName} setWindowState={setWindowState} isClosing={isClosing} zIndex={zIndex} bringToFront={bringToFront}>
             <div className="terminal-window">
                 <Terminal commands={commands}
                     welcomeMessage={welcomeMessage}

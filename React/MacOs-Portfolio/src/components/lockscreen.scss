@@ -1,0 +1,140 @@
+.lock-screen,
+.shutdown-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 950;
+}
+
+.lock-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(10, 10, 12, 0.74), rgba(10, 10, 12, 0.74)),
+        url('/mac-wallpaper.jpg') center / cover;
+    color: white;
+    animation: lock-enter 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lock-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(0.8rem);
+}
+
+.unlocking {
+    animation: unlock-slide 520ms cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.login-card {
+    position: relative;
+    z-index: 1;
+    width: min(22rem, 82vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    height: 5.6rem;
+    width: 5.6rem;
+    border: 0.24rem solid rgba(255, 255, 255, 0.86);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar span {
+    position: relative;
+    height: 1.15rem;
+    width: 1.15rem;
+    border-radius: 50%;
+    background: white;
+}
+
+.avatar span::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 1.75rem;
+    height: 1.9rem;
+    width: 3rem;
+    border-radius: 50% 50% 42% 42%;
+    background: white;
+    transform: translateX(-50%);
+}
+
+.login-card h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.password-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0.38rem;
+    background-color: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.password-row input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    color: white;
+    background: transparent;
+    padding: 0.45rem 0.6rem;
+}
+
+.password-row input::placeholder {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.password-row button,
+.shutdown-screen button {
+    border: 0;
+    color: white;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.16);
+    padding: 0.45rem 0.7rem;
+}
+
+.password-error {
+    color: rgb(255, 112, 112);
+    font-size: 0.86rem;
+}
+
+.shutdown-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+
+.shutdown-screen button {
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+}
+
+@keyframes lock-enter {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes unlock-slide {
+    to {
+        transform: translateY(-100%);
+    }
+}

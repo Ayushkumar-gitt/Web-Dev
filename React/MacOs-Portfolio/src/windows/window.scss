@@ -1,3 +1,27 @@
+.fullscreen-rnd {
+    width: 100vw !important;
+    height: calc(100vh - 28px) !important;
+}
+
+.fullscreen-animating {
+    transition:
+        width 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        height 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 320ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.window-animation {
+    height: 100%;
+    width: 100%;
+    transform-origin: bottom center;
+    animation: window-open 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.window-closing {
+    animation: window-close 260ms cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    pointer-events: none;
+}
+
 .window {
     background-color: black;
     height: 100%;
@@ -59,4 +83,28 @@
 
 .title p {
     color: rgb(236, 236, 236);
+}
+
+@keyframes window-open {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 70vh, 0) scale(0.06);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes window-close {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, 70vh, 0) scale(0.06);
+    }
 }

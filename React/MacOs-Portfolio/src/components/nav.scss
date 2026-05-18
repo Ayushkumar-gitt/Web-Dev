@@ -5,6 +5,8 @@ nav{
     color: white;
     padding-inline: 1rem;
     padding-block: 0.1rem;
+    position: relative;
+    z-index: 1000;
 }
 nav .left ,.right{
     display: flex;
@@ -12,4 +14,46 @@ nav .left ,.right{
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.apple-logo,
+.nav-item {
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-item p {
+    padding-inline: 0.25rem;
+}
+
+.nav-item:hover p {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.apple-menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.35rem;
+    border-radius: 0.45rem;
+    background-color: rgba(32, 32, 34, 0.84);
+    backdrop-filter: blur(0.8rem);
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.34);
+}
+
+.apple-menu button {
+    border: 0;
+    border-radius: 0.28rem;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    background: transparent;
+    padding: 0.5rem 0.65rem;
+}
+
+.apple-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.16);
 }
