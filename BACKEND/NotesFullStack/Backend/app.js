@@ -1,9 +1,10 @@
 const express = require("express")
 const noteModel = require("./models/notes_model")
-
+const cors = require('cors')
 const app = express() // server create hua express ko call krne se 
 const notes = [];
 
+app.use(cors())
 app.use(express.json())
 
 app.post('/notes', async(request, response) => {
