@@ -1,0 +1,23 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,body,#root{
+  height: 100%;
+  width: 100%;
+  color: whitesmoke;
+  background-color: rgb(26, 26, 26);
+}
+.note{
+  height: 5rem;
+  width: 20rem;
+  background-color: rgb(40, 40, 40);
+  display: flex;
+  /* gap: 1rem; */
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  flex-direction: column;
+
+}
