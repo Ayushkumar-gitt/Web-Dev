@@ -1,11 +1,13 @@
 const express = require("express")
 const noteModel = require("./models/notes_model")
 const cors = require('cors')
+const path = require("path")
 const app = express() // server create hua express ko call krne se 
 const notes = [];
 
 app.use(cors())
 app.use(express.json())
+app.use(express.static("./public"))
 
 app.post('/notes', async(request, response) => {
     const {title,description} = request.body
@@ -44,5 +46,10 @@ app.patch('/notes/:idx', async(request, response) => {
     })
 })
 
+console.log(__dirname);
+
+app.use('*name',(request,response)=>{
+    response.sendFile(path.join(__dirname,"/public/index.html"))
+})
 
 module.exports = app;
