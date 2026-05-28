@@ -1,6 +1,7 @@
 const express = require("express")
 const jwt = require("jsonwebtoken")
 const userModel = require("../models/userModel")
+const crypto = require("crypto")
 
 const authRouter = express.Router()
 
@@ -13,14 +14,15 @@ authRouter.post("/register", async (request, response) => {
             message: "user already exists"
         })
     }
+    const hash = crypto.createHash("md5").update(password).digest("hex")
 
-    const user = await userModel.create({ name, email, password })
-    
+    const user = await userModel.create({ name, email, password: hash })
+
     const token = jwt.sign({
         id: user._id
     }, process.env.JWT_SECRET)
 
-    response.cookie("token",token)
+    response.cookie("token", token)
 
     response.status(201).json({
         message: "user registered",
@@ -28,5 +30,36 @@ authRouter.post("/register", async (request, response) => {
         token
     })
 })
+
+authRouter.post('/login', (async (request, response) => {
+    const { email, password } = request.body
+    const user = await userModel.findOne({ email })
+
+    if (!user) {
+        return response.status(404).json({
+            message: "user not found with this email"
+        })
+    }
+
+    const isPassCorrect = user.password === crypto.createHash("md5").update(password).digest("hex")
+
+    if (!isPassCorrect) {
+        return response.status(404).json({
+            message: "Password is incorrect"
+        })
+    }
+
+    const token = jwt.sign({
+        id: user._id
+    }, process.env.JWT_SECRET)
+
+    response.cookie("loginToken", token)
+
+    response.status(200).json({
+        message: "Login done",
+        user
+    })
+}
+))
 
 module.exports = authRouter
