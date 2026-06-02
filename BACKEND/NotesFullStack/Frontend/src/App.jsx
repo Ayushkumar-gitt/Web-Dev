@@ -22,12 +22,14 @@ const App = () => {
       dataFetch()
     })
   }
+  
   function deleteNote(noteId) {
     axios.delete(`http://localhost:3000/notes/${noteId}`).then((response) => {
       console.log(response);
       dataFetch()
     })
   }
+
   function updateNote(event, noteId) {
     event.preventDefault()
 

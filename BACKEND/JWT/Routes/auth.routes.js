@@ -20,7 +20,7 @@ authRouter.post("/register", async (request, response) => {
 
     const token = jwt.sign({
         id: user._id
-    }, process.env.JWT_SECRET)
+    }, process.env.JWT_SECRET, { expiresIn: "1h" })
 
     response.cookie("token", token)
 
@@ -61,5 +61,19 @@ authRouter.post('/login', (async (request, response) => {
     })
 }
 ))
+
+authRouter.get("/getUser", async (request, response) => {
+    const token = request.cookies.token
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+
+    const user = await userModel.findById(decoded.id)
+
+    response.json({
+        name: user.name,
+        email: user.email,
+        password: user.password
+    })
+})
 
 module.exports = authRouter
