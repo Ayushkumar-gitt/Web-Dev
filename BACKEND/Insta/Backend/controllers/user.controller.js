@@ -43,6 +43,7 @@ async function followUserController(request, response) {
         followRecord
     })
 }
+
 async function unfollowUserController(request, response) {
     const followerUsername = request.user.username // The one who follows, Eg - Ayush
     const followeeUsername = request.params.username // The one who is being followed, Eg - Ashish

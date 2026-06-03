@@ -75,18 +75,19 @@ async function getPostDetailsController(request, response) {
         post
     })
 }
-async function likePostController(request, response) {
+async function likePostController(request, response) { // We have to like a post
     const username = request.user.username
     const postId = request.params.postId
 
-    const post = await postModel.findById(postId)
+    const post = await postModel.findById(postId) // First finding the post the we have to like
     console.log(post);
 
-    if (!post) {
+    if (!post) { // If post itself is not there , we will obviously return
         return response.status(404).json({
             message: "Post doesn't exists"
         })
     }
+    
     try {
         const like = await likeModel.create({
             post: postId, // kis post pr like kr rhe h 
