@@ -22,9 +22,13 @@ main {
             input,button{
                 border-radius: 0.35rem;
                 padding: 0.8rem;
+                border: none;
             }
             button{
                 background-color: rgb(39, 130, 187);
+            }
+            button:active{
+                scale: 0.98;
             }
         }
     }

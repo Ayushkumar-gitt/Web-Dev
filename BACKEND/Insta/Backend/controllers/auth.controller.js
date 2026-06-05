@@ -86,8 +86,21 @@ async function loginController(request, response) {
         }
     })
 }
+async function getMeController(request,response) {
+    const userId = request.user.id;
+    const user = await userModel.findById(userId)
 
+    response.status(200).json({
+        user:{
+            email: user.email,
+            username: user.username,
+            bio: user.bio,
+            profile_pic: user.profile_pic
+        }
+    })
+}
 module.exports = {
     registerControl,
-    loginController
+    loginController,
+    getMeController
 }
