@@ -1,0 +1,64 @@
+.feed-page {
+    // margin-top: 41rem;   
+    display: flex;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+    padding: 1rem 0;
+
+    // align-items: flex-start;
+    .feed {
+        max-width: 400px;
+        width: 100%;
+        display: flex;
+        gap: 0.7rem;
+        flex-direction: column;
+
+        .post {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            // background-color: sienna;
+            img {
+                // max-width: 300px;
+                width: 100%;
+            }
+
+            .user {
+                // background-color: grey;
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                img {
+                    width: 2rem;
+                    height: 2rem;
+                    aspect-ratio: 1/1;
+                    border-radius: 1rem;
+                }
+            }
+
+            .icons {
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    aspect-ratio: 1/1;
+                    background-color: transparent;
+                    border: none;
+                    // color: white;
+                }
+
+                .left {
+                    display: flex;
+                    gap: 0.7rem;
+                }
+            }
+        }
+    }
+}

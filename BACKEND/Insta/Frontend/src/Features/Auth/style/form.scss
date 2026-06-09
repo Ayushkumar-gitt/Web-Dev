@@ -26,6 +26,7 @@ main {
             }
             button{
                 background-color: rgb(39, 130, 187);
+                transition: all 0.3s ease-in-out;
             }
             button:active{
                 scale: 0.98;

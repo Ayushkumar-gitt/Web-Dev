@@ -87,7 +87,7 @@ async function likePostController(request, response) { // We have to like a post
             message: "Post doesn't exists"
         })
     }
-    
+
     try {
         const like = await likeModel.create({
             post: postId, // kis post pr like kr rhe h 
@@ -95,7 +95,7 @@ async function likePostController(request, response) { // We have to like a post
         })
     } catch (error) {
         return response.status(404).json({
-            message : "Already liked the post"
+            message: "Already liked the post"
         })
     }
 
@@ -104,9 +104,19 @@ async function likePostController(request, response) { // We have to like a post
         post
     })
 }
+
+async function feedPostController(request, response) {
+    const posts = await postModel.find().populate("user")
+
+    response.status(200).json({
+        message : "Posts for feed fetched successfully",
+        posts
+    })
+}
 module.exports = {
     createPostController,
     getPostController,
     getPostDetailsController,
-    likePostController
+    likePostController,
+    feedPostController
 }

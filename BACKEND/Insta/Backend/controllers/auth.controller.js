@@ -54,7 +54,7 @@ async function loginController(request, response) {
                 email: email
             }
         ]
-    })
+    }).select("+password")
 
     if (!user) {
         return response.status(404).json({

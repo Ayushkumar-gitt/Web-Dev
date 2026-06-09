@@ -30,8 +30,8 @@ export function AuthProvider({ children }) {
             setLoading(false)
         }
     }
-    return(
-        <AuthContext.Provider value={{user,loading,handleLogin,handleRegister}}>
+    return (
+        <AuthContext.Provider value={{ user, loading, handleLogin, handleRegister }}>
             {children}
         </AuthContext.Provider>
     )
