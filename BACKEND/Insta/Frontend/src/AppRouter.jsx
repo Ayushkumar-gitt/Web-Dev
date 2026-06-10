@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Login from './Features/Auth/pages/Login'
 import Register from './Features/Auth/pages/Register'
 import Feed from './Features/Post/pages/Feed'
+import CreatePost from './Features/Post/CreatePost'
 
 const AppRouter = () => {
     return (
@@ -11,6 +12,7 @@ const AppRouter = () => {
                 <Route path='/' element={<Feed/>}></Route>
                 <Route path='/login' element={<Login />}></Route>
                 <Route path='/register' element={<Register />}></Route>
+                <Route path='/createpost' element={<CreatePost />}></Route>
             </Routes>
         </BrowserRouter>
     )

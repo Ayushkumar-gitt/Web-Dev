@@ -14,11 +14,11 @@ const Post = ({ user, post }) => {
             <img src={post.imgUrl} alt="" />
             <div className="icons">
                 <div className="left">
-                    <button onClick={async () => {
+                    <button className={post.isLiked ||likeResponse? "likeRed" : "likeWhite"} onClick={async () => {
                         await handlePostLike(post._id).then((response) => {
-                             setlikeResponse(response)
+                            setlikeResponse(response)
                         })
-                    }}><i class="ri-heart-3-line" style={likeResponse != null ? { color: 'red' } : { color: 'white' }} ></i></button>
+                    }}><i class="ri-heart-3-line" ></i></button>
                     <button><i class="ri-chat-3-line" style={{ color: 'white' }}></i></button>
                     <button><i class="ri-share-forward-line" style={{ color: 'white' }}></i></button>
                 </div>
