@@ -3,6 +3,7 @@ import '../Style/feed.scss'
 import 'remixicon/fonts/remixicon.css'
 import Post from '../components/Post'
 import { usePost } from '../hooks/usePost'
+import Nav from '../../Shared/components/Nav'
 
 const Feed = () => {
     const { loading, feed, handleGetFeed } = usePost()
@@ -17,6 +18,7 @@ const Feed = () => {
 
     return (
         <main className='feed-page'>
+            <Nav/>
             <div className="feed">
                 {feed.map((post) => {
                     return <Post user={post.user} post={post} />

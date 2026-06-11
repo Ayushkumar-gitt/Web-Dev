@@ -20,7 +20,24 @@ export async function likePost(postId) {
         return response.data
     } catch (error) {
         console.log(error.response?.data?.message || error.message);
-        throw error; 
+        throw error;
+    }
+}
+
+export async function createPost(postImg, caption) {
+    try {
+        const formData = new FormData()
+
+        formData.append('image', postImg)
+        formData.append('caption', caption)
+
+        const response = await api.post('/', formData)
+
+        return response
+
+    } catch (error) {
+        console.log(error);
+
     }
 }
 

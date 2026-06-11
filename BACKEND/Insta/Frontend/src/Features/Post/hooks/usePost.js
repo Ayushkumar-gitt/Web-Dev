@@ -1,6 +1,6 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { postContext } from "../post.context"
-import { getFeed, likePost } from "../services/post.services"
+import { createPost, getFeed, likePost } from "../services/post.services"
 
 export const usePost = () => {
     const context = useContext(postContext)
@@ -16,7 +16,14 @@ export const usePost = () => {
         const response = await likePost(postId)
         return response
     }
+    const handleCreatePost = async (postImg, caption) => {
+        setloading(true)
+        const response = await createPost(postImg, caption)
+        setfeed(response.post, ...feed)
+        setloading(false)
+    }
+    
     return {
-        loading, handleGetFeed, post, feed,handlePostLike
+        loading, handleGetFeed, post, feed, handlePostLike, handleCreatePost
     }
 }
