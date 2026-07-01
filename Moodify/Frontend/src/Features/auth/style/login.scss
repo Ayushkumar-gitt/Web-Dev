@@ -1,0 +1,64 @@
+.loginPage, .registerPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 50%;
+        background-color: #1c1c1c;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.75);
+
+        h2 {
+            padding-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 1rem;
+            margin-bottom: 2rem;
+
+            label {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #333;
+                color: whitesmoke;
+                font-size: 1.1rem;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+                }
+            }
+        }
+
+        button {
+            padding: 0.7rem 1.5rem;
+            border-radius: 0.6rem;
+            background-color: darkgreen;
+            color: whitesmoke;
+            // margin: 0 auto;
+            // display: block;
+        }
+        form{
+            margin-bottom: 1rem;
+        }
+    }
+}

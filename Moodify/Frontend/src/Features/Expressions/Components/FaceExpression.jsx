@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { detect, init } from "../utils/utils";
 
-export default function FaceExpression() {
+export default function FaceExpression({ onClick = () => { } }) {
     const videoRef = useRef(null);
     const landmarkerRef = useRef(null);
     const animationRef = useRef(null);
@@ -31,6 +31,13 @@ export default function FaceExpression() {
         };
     }, []);
 
+    async function handleClick() {
+        const expression = detect({ landmarkerRef, videoRef, setExpression })
+        // console.log(expression);
+        
+        onClick(expression)
+    }
+
     return (
         <div style={{ textAlign: "center" }}>
             <video
@@ -39,7 +46,7 @@ export default function FaceExpression() {
                 playsInline
             />
             <h2>{expression}</h2>
-            <button onClick={() => { detect({ landmarkerRef, videoRef, setExpression }) }} >Detect expression</button>
+            <button onClick={handleClick} >Detect expression</button>
         </div>
     );
 }
