@@ -1,0 +1,124 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 196, 120, 0.4), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(109, 40, 217, 0.16), transparent 28%),
+    linear-gradient(135deg, #f7f4ee 0%, #f1ede4 100%);
+}
+
+.auth-card {
+  width: min(100%, 420px);
+  padding: 32px;
+  border: 1px solid rgba(43, 37, 31, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 24px 70px rgba(46, 38, 28, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.auth-copy {
+  margin-bottom: 24px;
+}
+
+.auth-eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.auth-copy h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  line-height: 1;
+  color: #1f2937;
+}
+
+.auth-subtitle {
+  margin: 12px 0 0;
+  color: #5b6472;
+  line-height: 1.6;
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.auth-field {
+  display: grid;
+  gap: 8px;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.auth-field input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d6d3d1;
+  border-radius: 14px;
+  background: #fffdf9;
+  color: #111827;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.auth-field input:focus {
+  border-color: #d97706;
+  box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.14);
+  transform: translateY(-1px);
+}
+
+.auth-field input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-button {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.auth-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(31, 41, 55, 0.18);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+}
+
+.auth-message {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.auth-message-error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+}
