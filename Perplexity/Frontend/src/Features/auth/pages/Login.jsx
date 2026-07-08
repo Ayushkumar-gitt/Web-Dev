@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import './Auth.css'
 import { useNavigate } from 'react-router'
 import { useAuth } from '../hooks/useAuth'
+import { useSelector } from 'react-redux'
 
 const Login = () => {
-    
+
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
+    const user = useSelector(state => state.auth.user)
+    const loading = useSelector(state => state.auth.loading)
     const navigate = useNavigate()
     const { handleLogin } = useAuth()
 
@@ -18,10 +21,12 @@ const Login = () => {
             return
         }
         await handleLogin({ email: email, password })
-        navigate('/homepage')
+        navigate('/')
 
     }
-
+    if (!loading && user) {
+        return navigate('/')
+    }
     return (
         <main className="auth-page">
             <section className="auth-card">
