@@ -19,6 +19,10 @@ const chatslice = createSlice({
                 lastUpdated: new Date().toISOString()
             }
         },
+        addMessages:(state,action)=>{
+            const {chatId,messages}=action.payload
+            state.chats[chatId].messages.push(...messages)
+        },
         addNewMessage: (state, action) => {
             const { chatId, content, role } = action.payload
             const normalizedContent = typeof content === 'string'
@@ -45,7 +49,7 @@ const chatslice = createSlice({
     }
 })
 
-export const { setChats, setisLoading, setCurrentChatId, setError, createNewChat, addNewMessage } = chatslice.actions
+export const { setChats, setisLoading, setCurrentChatId, setError, createNewChat, addNewMessage,addMessages } = chatslice.actions
 
 export default chatslice.reducer
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import ReactMarkdown from 'react-markdown'
 import { useChat } from '../hooks/useChat'
 import '../style/Homepage.css'
 
@@ -51,11 +52,10 @@ const HomePage = () => {
         ? chats[currentChatId].messages
         : []
     
-    console.log(currentMessages);
-    
     /* Socket init */
     useEffect(() => {
         chat.initSocketConnection()
+        chat.handleGetChats()
     }, [])
 
     /* Send — placeholder, real API to be wired up later */
@@ -63,7 +63,9 @@ const HomePage = () => {
         chat.handleSendMessages({ message, currentChatId })
 
     }
-
+    async function openChat(chatId) {
+        chat.handleOpenChat(chatId)
+    }
     return (
         <div className="hp-root">
             {/* ── Sidebar ── */}
@@ -86,17 +88,18 @@ const HomePage = () => {
                 {/* History */}
                 <span className="hp-chat-list-label">Recents</span>
                 <nav className="hp-chat-list" aria-label="Recent chats">
-                    {Object.values(chats).map(c => (
+                    {Object.values(chats).map(chat => (
                         <button
-                            key={c._id}
-                            className={`hp-chat-item ${currentChatId === c._id ? 'active' : ''}`}
-                            aria-current={currentChatId === c._id ? 'page' : undefined}
-                            aria-label={c.title}
-                            id={`chat-item-${c._id}`}
+                            key={chat._id}
+                            className={`hp-chat-item ${currentChatId === chat._id ? 'active' : ''}`}
+                            aria-current={currentChatId === chat._id ? 'page' : undefined}
+                            aria-label={chat.title}
+                            id={`chat-item-${chat.id}`}
+                            onClick={()=>openChat(chat.id)}
                         >
                             <div className="hp-chat-item-icon"><ChatIcon /></div>
                             <div className="hp-chat-item-content">
-                                <div className="hp-chat-item-title">{c.title}</div>
+                                <div className="hp-chat-item-title">{chat.title}</div>
                             </div>
                         </button>
                     ))}
@@ -121,7 +124,12 @@ const HomePage = () => {
                                 {msg.role === 'user' ? 'U' : 'P'}
                             </div>
                             <div className="hp-msg-bubble-wrap">
-                                <div className="hp-msg-bubble">{getMessageText(msg)}</div>
+                                <div className="hp-msg-bubble">
+                                    {msg.role === 'user'
+                                        ? getMessageText(msg)
+                                        : <ReactMarkdown>{getMessageText(msg)}</ReactMarkdown>
+                                    }
+                                </div>
                             </div>
                         </div>
                     ))}
