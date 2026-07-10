@@ -60,11 +60,11 @@ const HomePage = () => {
 
     /* Send — placeholder, real API to be wired up later */
     async function handleSend() {
-        chat.handleSendMessages({ message, currentChatId })
+        chat.handleSendMessages({ message, chatId: currentChatId })
 
     }
-    async function openChat(chatId) {
-        chat.handleOpenChat(chatId)
+    async function openChat(chatId,chats) {
+        chat.handleOpenChat(chatId,chats)
     }
     return (
         <div className="hp-root">
@@ -95,7 +95,7 @@ const HomePage = () => {
                             aria-current={currentChatId === chat._id ? 'page' : undefined}
                             aria-label={chat.title}
                             id={`chat-item-${chat.id}`}
-                            onClick={()=>openChat(chat.id)}
+                            onClick={()=>openChat(chat.id,chats)}
                         >
                             <div className="hp-chat-item-icon"><ChatIcon /></div>
                             <div className="hp-chat-item-content">

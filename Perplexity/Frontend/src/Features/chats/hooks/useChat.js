@@ -11,9 +11,11 @@ export function useChat() {
 
         const { chat, aiMessage } = response
 
-        dispatch(createNewChat({ chatId: chat._id, title: chat.title }))
-        dispatch(addNewMessage({ chatId: chat._id, content: message, role: 'user' }))
-        dispatch(addNewMessage({ chatId: chat._id, content: aiMessage, role: 'ai' }))
+        if (!chatId) {
+            dispatch(createNewChat({ chatId: chat._id, title: chat.title }))
+        }
+        dispatch(addNewMessage({ chatId: chatId || chat._id, content: message, role: 'user' }))
+        dispatch(addNewMessage({ chatId: chatId || chat._id, content: aiMessage, role: 'ai' }))
         dispatch(setCurrentChatId(chat._id))
         dispatch(setisLoading(false))
     }
@@ -35,16 +37,16 @@ export function useChat() {
         // dispatch(setCurrentChatId(chats[0]._id))
     }
 
-    async function handleOpenChat(chatId) {
-        const {messages} = await getMessages(chatId)
-        
-
-        const formattedMessages = messages.map(msg => ({
-            content: msg.content,
-            role: msg.role
-        }))
-        dispatch(addMessages({ chatId, messages: formattedMessages }))
-        dispatch(setCurrentChatId(chatId))
+    async function handleOpenChat(chatId, chats) {
+        if (chats[chatId]?.messages.length === 0) {
+            const { messages } = await getMessages(chatId)
+            const formattedMessages = messages.map(msg => ({
+                content: msg.content,
+                role: msg.role
+            }))
+            dispatch(addMessages({ chatId, messages: formattedMessages }))
+            dispatch(setCurrentChatId(chatId))
+        }
     }
     return {
         initSocketConnection,
