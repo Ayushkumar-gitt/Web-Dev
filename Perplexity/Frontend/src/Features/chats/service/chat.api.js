@@ -5,10 +5,15 @@ const api = axios.create({
     withCredentials:true
 })
 
-export async function sendMessage({message,chatId}){
-    console.log(message);
-    
-    const response = await api.post("/message", { message, chat: chatId })
+export async function sendMessage({message, chatId, file}){
+    const formData = new FormData()
+    formData.append('message', message)
+    if (chatId) formData.append('chat', chatId)
+    if (file) formData.append('file', file)
+
+    const response = await api.post("/message", formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+    })
     return response.data
 }
 

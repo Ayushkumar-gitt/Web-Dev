@@ -4,6 +4,11 @@ import messageModel from "../models/message.model.js"
 
 export async function sendMessage(request, response) {
     const { message, chat: chatId } = request.body
+    
+    let fileUrl = null;
+    if (request.file) {
+        fileUrl = `http://localhost:3000/uploads/${request.file.filename}`;
+    }
 
     let title = null, chat = null
 
@@ -18,12 +23,13 @@ export async function sendMessage(request, response) {
     const userMessage = await messageModel.create({
         chat: chatId || chat._id,
         content: message,
-        role: "user"
+        role: "user",
+        ...(fileUrl && { fileUrl })
     })
 
     const allMessages = await messageModel.find({ chat: chatId || chat._id })
 
-    const AiResponse = await generateResponse(allMessages)
+    const AiResponse = await generateResponse(allMessages, request.file?.path || null)
 
     const aiMessage = await messageModel.create({
         chat: chatId || chat._id,
@@ -34,9 +40,9 @@ export async function sendMessage(request, response) {
 
     response.status(201).json({
         title: title,
-        // Aimessage: AiResponse,
         chat,
-        aiMessage
+        aiMessage,
+        userMessage
     })
 }
 

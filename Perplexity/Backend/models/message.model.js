@@ -14,6 +14,10 @@ const messageSchema = new mongoose.Schema({
         type: String,
         enum: ['user', 'ai'],
         required: [true, "Please specify the role"]
+    },
+    fileUrl: {
+        type: String,
+        required: false
     }
 }, {
     timestamps: true

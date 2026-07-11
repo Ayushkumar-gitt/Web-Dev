@@ -6,6 +6,8 @@ import HomePage from './Features/chats/pages/HomePage'
 import { useAuth } from './Features/auth/hooks/useAuth'
 import Protected from './Features/auth/components/Protected'
 
+import ProfilePage from './Features/auth/pages/ProfilePage'
+
 const AppRouter = () => {
     const auth = useAuth()
 
@@ -18,9 +20,9 @@ const AppRouter = () => {
                 <Route path='/login' element={<Login />}></Route>
                 <Route path='/register' element={<Register />}></Route>
                 <Route path='/' element={<Protected> <HomePage /> </Protected>}></Route>
+                <Route path='/profile' element={<Protected> <ProfilePage /> </Protected>}></Route>
             </Routes>
         </BrowserRouter>
-
     )
 }
 

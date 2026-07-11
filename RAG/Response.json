@@ -1,0 +1,24 @@
+{
+    "matches": [
+        {
+            "id": "doc-8",
+            "score": 0.807066,
+            "values": [],
+            "metadata": {
+                "text": "4. Types of Disk Scheduling Algorithms\n5.1 FCFS (First Come First Serve)\nFCFS serves the disk requests in the order they arrive. It is simple but may\nresult in long waiting times when requests are far apart on the disk surface.\n5.2 SSTF (Shortest Seek Time First)\nSSTF selects the request closest to the current head position. It reduces\nseek time but can cause starvation for distant requests.\n5.3 SCAN (Elevator Algorithm)\nIn SCAN, the disk arm moves in one direction serving requests until it\nreaches the end, then reverses direction. It behaves like an elevator moving\nup and down, hence the name.\n5.4 C-SCAN (Circular SCAN)\nC-SCAN moves the head in one direction only. After reaching the end, it\nquickly returns to the beginning without serving any requests. It provides\nuniform wait time compared to SCAN.\n5.5 LOOK\nLOOK works like SCAN but instead of going till the end of the disk, it\nreverses direction when there are no more requests ahead.\n5.6 C-LOOK\nC-LOOK is a modified version of C-SCAN that only goes as far as the last\nrequest in each direction, then jumps back to the first request.\n\n--9 of 15 --"
+            }
+        },
+        {
+            "id": "doc-13",
+            "score": 0.783081234,
+            "values": [],
+            "metadata": {
+                "text": "9. Conclusion\nDisk scheduling is a crucial part of operating systemdesign that directly\nimpacts the speed and efficiency of data access. Since a disk drive handles\nmultiple read and write requests from different processes at the same\ntime, it becomes essential to determine the most efficient order in which\nthese requests are executed. Proper disk scheduling reduces seek time,\nresponse time, and rotational delay, leading to faster data retrieval and\nimproved system performance.\nVarious disk scheduling algorithms like FCFS, SSTF, SCAN, C-SCAN, LOOK,\nand C-LOOK are designed to optimize performance based on different\nsituations. Each has its own advantages and limitations, but their common\ngoal is to minimize disk head movement and maximize throughput.\nIn modern systems such as servers, databases, and cloud storage, disk\nscheduling ensures that multiple users and processes can access data\nefficiently without long waiting times. It not only improves hardware\nutilization but also enhances the overall reliability and speed of the\ncomputer system.\nIn conclusion, disk scheduling is essential for achieving balanced, fair, and\nhigh-performance data access, making it a fundamental aspect of every\noperating system’s resource management.\n\n-- 14 of 15 --"
+            }
+        }
+    ],
+    "namespace": "__default__",
+    "usage": {
+        "readUnits": 1
+    }
+}

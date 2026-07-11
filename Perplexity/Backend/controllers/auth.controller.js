@@ -130,3 +130,11 @@ export async function getme(request, response) {
         user
     })
 }
+
+export async function logoutUser(request, response) {
+    response.clearCookie("token")
+    response.status(200).json({
+        message: "user logged out successfully",
+        success: true
+    })
+}
