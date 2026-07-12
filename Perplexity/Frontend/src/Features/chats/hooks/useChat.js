@@ -99,5 +99,6 @@ export function useChat() {
         handleGetChats,
         handleOpenChat
     }
+    
 }
-
+
