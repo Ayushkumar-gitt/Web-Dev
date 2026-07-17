@@ -9,8 +9,8 @@ app.get('/health', (request, response) => {
     })
 })
 
-app.post("/usegraph",async(request,response)=>{
-    await sendMessage("What is the capital of france?") 
+app.post("/usegraph", async (request, response) => {
+    await sendMessage("What is the capital of france?")
 })
 
 export default app
