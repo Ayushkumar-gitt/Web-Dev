@@ -165,6 +165,7 @@ export default function App() {
           </div>
         ))}
 
+
         {loading && battles.length === 0 && (
           <div className="loading-indicator" style={{ margin: 'auto' }}>
             <span className="dot-pulse">●</span>
