@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import axios from "axios"
 
-
 export default function App() {
   const [inputText, setInputText] = useState('');
   const [loading, setLoading] = useState(false);
