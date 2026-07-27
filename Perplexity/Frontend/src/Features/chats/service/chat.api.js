@@ -1,7 +1,9 @@
 import axios from "axios"
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 const api = axios.create({
-    baseURL:"http://localhost:3000/chats",
+    baseURL:`${API_URL}/chats`,
     withCredentials:true
 })
 
@@ -31,4 +33,3 @@ export async function deleteChat(id){
     const response = await api.delete(`/${id}/delete`)
     return response.data
 }
-
