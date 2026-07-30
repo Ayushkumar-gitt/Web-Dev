@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { height: 100%; overflow: hidden; background: #0a0a0a; }
+
+/* ─── Layout ────────────────────────────────────────────────── */
+.reg {
+  display: flex;
+  height: 100vh;
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+/* ─── Left: Image Panel (pinned to viewport) ────────────────── */
+.reg__visual {
+  flex: 1;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .reg__visual { display: block; }
+}
+
+.reg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(0.7) contrast(1.05);
+}
+
+.reg__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, transparent 55%, #0a0a0a 100%),
+    linear-gradient(to top, #0a0a0a 0%, transparent 25%);
+  pointer-events: none;
+}
+
+.reg__watermark {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 2;
+}
+
+.reg__watermark span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.reg__tagline {
+  display: block;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.65rem !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,0.25) !important;
+  letter-spacing: 0.06em !important;
+  margin-top: 0.2rem;
+}
+
+/* ─── Right: Form Panel (pinned, vertically centered) ────────── */
+.reg__formSide {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+}
+
+@media (min-width: 860px) {
+  .reg__formSide {
+    min-width: 420px;
+    max-width: 460px;
+    flex-shrink: 0;
+  }
+}
+
+.reg__card {
+  width: 100%;
+  max-width: 340px;
+  animation: cardIn 0.4s ease-out;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+.reg__head { margin-bottom: 1.4rem; }
+
+.reg__brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fafafa;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.reg__title {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #a1a1aa;
+  line-height: 1.3;
+}
+
+/* ─── Form ──────────────────────────────────────────────────── */
+.reg__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* ─── Field ─────────────────────────────────────────────────── */
+.reg__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.reg__label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #a1a1aa;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ─── Input ─────────────────────────────────────────────────── */
+.reg__inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.reg__ico {
+  position: absolute;
+  left: 0.6rem;
+  display: flex;
+  color: #71717a;
+  pointer-events: none;
+  transition: color 0.15s;
+}
+.reg__ico svg { width: 13px; height: 13px; }
+
+.reg__input {
+  width: 100%;
+  height: 36px;
+  padding: 0 0.6rem 0 2rem;
+  background: transparent;
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  color: #e4e4e7;
+  font-size: 0.8rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.reg__input::placeholder { color: #71717a; }
+
+.reg__input:focus {
+  border-color: #a1a1aa;
+  box-shadow: 0 0 0 2px rgba(161,161,170,0.08);
+}
+
+.reg__inputWrap:focus-within .reg__ico { color: #a1a1aa; }
+
+/* ─── Password toggle ──────────────────────────────────────── */
+.reg__pwToggle {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #52525b;
+  display: flex;
+  padding: 2px;
+  transition: color 0.15s;
+}
+.reg__pwToggle:hover { color: #71717a; }
+.reg__pwToggle svg { width: 13px; height: 13px; }
+
+/* ─── Error ─────────────────────────────────────────────────── */
+.reg__err {
+  font-size: 0.65rem;
+  color: #f87171;
+  padding-left: 0.1rem;
+}
+
+/* ─── Seller checkbox ───────────────────────────────────────── */
+.reg__seller {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  transition: border-color 0.15s;
+  user-select: none;
+}
+.reg__seller:hover { border-color: #3f3f46; }
+
+.reg__sellerCb { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.reg__check {
+  width: 15px; height: 15px; min-width: 15px;
+  border: 1.5px solid #52525b;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.reg__sellerCb:checked ~ .reg__check {
+  background: #fafafa;
+  border-color: #fafafa;
+}
+
+.reg__checkIco { display: none; color: #0a0a0a; }
+.reg__checkIco svg { width: 9px; height: 9px; }
+.reg__sellerCb:checked ~ .reg__check .reg__checkIco { display: flex; }
+
+.reg__sellerInfo { display: flex; flex-direction: column; }
+.reg__sellerMain { font-size: 0.78rem; color: #d4d4d8; font-weight: 400; }
+.reg__sellerSub  { font-size: 0.65rem; color: #71717a; }
+
+/* ─── Submit ────────────────────────────────────────────────── */
+.reg__btn {
+  margin-top: 0.15rem;
+  height: 36px;
+  background: #fafafa;
+  border: none;
+  border-radius: 6px;
+  color: #0a0a0a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.reg__btn:hover { background: #e4e4e7; }
+.reg__btn:active { transform: scale(0.98); }
+.reg__btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* ─── Spinner ───────────────────────────────────────────────── */
+.reg__spinner {
+  width: 13px; height: 13px;
+  border: 2px solid rgba(10,10,10,0.2);
+  border-top-color: #0a0a0a;
+  border-radius: 50%;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Footer ────────────────────────────────────────────────── */
+.reg__footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #52525b;
+}
+
+.reg__footer a {
+  color: #d4d4d8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.reg__footer a:hover { color: #fafafa; }
+
+/* ─── Separator ─────────────────────────────────────────────── */
+.reg__sep {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.05rem 0;
+}
+.reg__sep::before,
+.reg__sep::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #1c1c1e;
+}
+.reg__sepTxt {
+  font-size: 0.6rem;
+  color: #52525b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
