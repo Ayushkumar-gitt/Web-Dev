@@ -11,7 +11,7 @@ authRouter.post('/login', loginValidate, loginController)
 authRouter.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }))
 
 authRouter.get("/google/callback", passport.authenticate("google",
-    { failureRedirect: "/", session: false }), googleCallback
+    { failureRedirect: "http://localhost:5173/register", session: false }), googleCallback
 )
 
 export default authRouter;

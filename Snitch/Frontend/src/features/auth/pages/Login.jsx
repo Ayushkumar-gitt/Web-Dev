@@ -3,6 +3,7 @@ import { useAuth } from '../hook/useAuth'
 import heroImg from '../../../assets/fashion-hero.png'
 import './register.css' // Reusing register styles
 import { useNavigate } from 'react-router'
+import ContinueWithGoogle from '../components/ContinueWithGoogle.jsx'
 
 /* ── Tiny SVG icons ─────────────────────────────────────────── */
 const I = (p) => (
@@ -95,8 +96,9 @@ const Login = () => {
                             </div>
                             {errors.password && <span className="reg__err">{errors.password}</span>}
                         </div>
-
-                        <button id="login-submit-btn" className="reg__btn" type="submit" disabled={loading} style={{marginTop: '1rem'}}>
+                        <ContinueWithGoogle />
+                        
+                        <button id="login-submit-btn" className="reg__btn" type="submit" disabled={loading} style={{ marginTop: '1rem' }}>
                             {loading && <span className="reg__spinner" />}
                             {loading ? 'Signing in…' : 'Sign In'}
                         </button>

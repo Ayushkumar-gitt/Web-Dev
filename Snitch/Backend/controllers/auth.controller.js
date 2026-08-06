@@ -70,7 +70,25 @@ async function loginController(request, response) {
 }
 
 async function googleCallback(request, response) {
-    console.log(request.user);
+    const { id, displayName, emails, photos } = request.user
+    const email = emails[0].value
+    const profilePicture = photos[0].value
+    const user = userModel.findOne({ email })
+    if (!user) {
+        userModel.create({
+            email: email,
+            fullname: displayName,
+            googleId: id,
+
+        })
+    }
+    const token = jwt.sign({
+        id: user.id
+    }, config.JWT_SECRET, { expiresIn: '7d' })
+
+    response.cookie("token", token)
+
+    // console.log(request.user);
     response.redirect("http://localhost:5173/")
 }
 export { registerController, loginController, googleCallback };

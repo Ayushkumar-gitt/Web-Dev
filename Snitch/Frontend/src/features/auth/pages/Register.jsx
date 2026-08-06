@@ -3,6 +3,7 @@ import { useAuth } from '../hook/useAuth'
 import heroImg from '../../../assets/fashion-hero.png'
 import './register.css'
 import { useNavigate } from 'react-router'
+import ContinueWithGoogle from '../components/ContinueWithGoogle.jsx'
 
 /* ── Tiny SVG icons ─────────────────────────────────────────── */
 const I = (p) => (
@@ -130,10 +131,8 @@ const Register = () => {
                             </span>
                         </label>
 
-                        <a href='/auth/google' style={{ display: 'block', textAlign: 'center', margin: '1rem 0', color: '#FAF9F6', textDecoration: 'underline' }}>
-                            Continue with google
-                        </a>
-                        
+                        <ContinueWithGoogle />
+
                         <button id="register-submit-btn" className="reg__btn" type="submit" disabled={loading}>
                             {loading && <span className="reg__spinner" />}
                             {loading ? 'Creating…' : 'Create Account'}
