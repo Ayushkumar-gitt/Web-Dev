@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseUrl: "http://localhost:3000/products",
+    baseURL: "/products",
     withCredentials: true,
 })
 
@@ -15,4 +15,9 @@ async function viewProducts() {
     return response.data
 }
 
-export { createProduct, viewProducts }
+async function viewAllProduct() {
+    const response = await api.get("/")
+    return response.data
+}
+
+export { createProduct, viewProducts, viewAllProduct }

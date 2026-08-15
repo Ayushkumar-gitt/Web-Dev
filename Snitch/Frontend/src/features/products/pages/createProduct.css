@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════════════
+   ROOT PAGE
+   Pure black canvas. Allows vertical scrolling.
+═══════════════════════════════════════════════════════════ */
+.cp {
+  min-height: 100vh;
+  background: #0a0a0a;
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #f5f5f5;
+  overflow-y: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TOP BAR  —  tiny brand name
+═══════════════════════════════════════════════════════════ */
+.cp__topbar {
+  padding: 1.5rem 2.75rem 0;
+}
+
+.cp__brandName {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE HEADER  —  back button + title
+═══════════════════════════════════════════════════════════ */
+.cp__pageHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.4rem 2.75rem 0;
+}
+
+.cp__backBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.cp__backBtn:hover { color: rgba(255,255,255,0.7); }
+.cp__backBtn svg   { width: 18px; height: 18px; }
+
+.cp__pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Thin white separator line below the header */
+.cp__divider {
+  margin: 1.5rem 2.75rem 0;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MAIN GRID  —  two columns + full-width footer
+═══════════════════════════════════════════════════════════ */
+.cp__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;                          /* hairline gap between columns */
+  margin: 0 2.75rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Left column */
+.cp__formCol {
+  padding: 2.5rem 3rem 2.5rem 0;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Right column */
+.cp__imagesCol {
+  padding: 2.5rem 0 2.5rem 3rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FIELD WRAPPER
+═══════════════════════════════════════════════════════════ */
+.cp__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.75rem;
+}
+.cp__field:last-child { margin-bottom: 0; }
+
+/* ─── Label ──────────────────────────────────────────────── */
+.cp__label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ─── Text / number input ────────────────────────────────── */
+.cp__input {
+  width: 100%;
+  height: 44px;
+  padding: 0 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.cp__input::placeholder { color: rgba(255,255,255,0.2); }
+.cp__input:hover  { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+.cp__input:focus  {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.35);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+}
+
+/* ─── Textarea ───────────────────────────────────────────── */
+.cp__textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  min-height: 120px;
+  line-height: 1.65;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.cp__textarea::placeholder { color: rgba(255,255,255,0.2); }
+.cp__textarea:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+.cp__textarea:focus {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.35);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+}
+
+/* ─── Price row  ─────────────────────────────────────────── */
+.cp__priceRow {
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 0.75rem;
+}
+
+.cp__subField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.cp__subLabel {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ─── Select ─────────────────────────────────────────────── */
+.cp__select {
+  width: 100%;
+  height: 44px;
+  padding: 0 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.3)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.cp__select:hover { background-color: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+.cp__select:focus { border-color: rgba(255,255,255,0.35); }
+.cp__select option { background: #1a1a1a; color: #f5f5f5; }
+
+/* ═══════════════════════════════════════════════════════════
+   IMAGES SECTION
+═══════════════════════════════════════════════════════════ */
+.cp__imagesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.cp__imagesLabel {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.cp__imagesCount {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.2);
+}
+
+/* 4-column grid of square slots */
+.cp__imageGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+/* Filled thumbnail */
+.cp__thumb {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+}
+
+.cp__thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.cp__thumb:hover .cp__thumbImg { transform: scale(1.04); }
+
+/* × remove button */
+.cp__thumbRemove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.8);
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s;
+}
+.cp__thumb:hover .cp__thumbRemove { opacity: 1; }
+.cp__thumbRemove:hover { background: rgba(0,0,0,0.95); }
+.cp__thumbRemove svg { width: 9px; height: 9px; }
+
+/* Empty upload slot */
+.cp__uploadSlot {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border: 1px dashed rgba(255,255,255,0.12);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.cp__uploadSlot:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.03);
+}
+
+/* Invisible file input covers the whole slot */
+.cp__uploadSlotInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.cp__uploadSlot svg   { width: 16px; height: 16px; color: rgba(255,255,255,0.2); }
+.cp__uploadSlotHint   {
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.18);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ERRORS
+═══════════════════════════════════════════════════════════ */
+.cp__err {
+  font-size: 0.65rem;
+  color: rgba(248,113,113,0.9);
+}
+
+.cp__errBanner {
+  margin: 0 2.75rem 1rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(248,113,113,0.25);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: rgba(248,113,113,0.9);
+  background: rgba(248,113,113,0.05);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER  —  full-width white Publish button
+═══════════════════════════════════════════════════════════ */
+.cp__footer {
+  padding: 2rem 2.75rem 3.5rem;
+}
+
+.cp__btn {
+  width: 100%;
+  height: 52px;
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
+  color: #0a0a0a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0 rgba(255,255,255,0);
+}
+.cp__btn:hover  {
+  background: #f0f0f0;
+  box-shadow: 0 0 40px rgba(255,255,255,0.08);
+}
+.cp__btn:active { transform: scale(0.995); }
+.cp__btn:disabled { opacity: 0.25; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* Loading spinner */
+.cp__spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(10,10,10,0.2);
+  border-top-color: #0a0a0a;
+  border-radius: 50%;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Footer back link */
+.cp__footerNote {
+  text-align: center;
+  margin-top: 0.85rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.2);
+}
+.cp__footerNote span {
+  cursor: pointer;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.15s;
+}
+.cp__footerNote span:hover { color: rgba(255,255,255,0.7); }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE  —  single column on ≤768 px
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .cp__topbar     { padding: 1.25rem 1.5rem 0; }
+  .cp__pageHeader { padding: 1.1rem 1.5rem 0; }
+  .cp__divider    { margin: 1.25rem 1.5rem 0; }
+  .cp__errBanner  { margin: 0.75rem 1.5rem; }
+  .cp__footer     { padding: 1.5rem 1.5rem 3rem; }
+
+  .cp__content {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0 1.5rem;
+  }
+
+  .cp__formCol {
+    padding: 2rem 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .cp__imagesCol  { padding: 2rem 0; }
+  .cp__priceRow   { grid-template-columns: 1fr 110px; }
+  .cp__pageTitle  { font-size: 1.6rem; }
+}

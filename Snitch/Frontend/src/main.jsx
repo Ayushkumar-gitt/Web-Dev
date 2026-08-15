@@ -5,9 +5,9 @@ import { store } from './app/app.store.js'
 import AppRouter from './AppRouter.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>
-  </StrictMode>
+
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+
 )

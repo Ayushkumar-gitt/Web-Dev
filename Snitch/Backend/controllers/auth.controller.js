@@ -91,4 +91,17 @@ async function googleCallback(request, response) {
     // console.log(request.user);
     response.redirect("http://localhost:5173/")
 }
-export { registerController, loginController, googleCallback };
+
+async function getMeController(request, response) {
+    const user = request.user
+    response.status(200).json({
+        user: {
+            id: user._id,
+            email: user.email,
+            contact: user.contact,
+            fullname: user.fullname,
+            role: user.role
+        }
+    })
+}
+export { registerController, loginController, googleCallback , getMeController };

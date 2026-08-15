@@ -29,6 +29,6 @@ passport.use(new GoogleStrategy({
 
 
 app.use("/auth", authRouter)
-app.use("/products/seller", productRouter)
+app.use("/products", productRouter)
 
 export default app;

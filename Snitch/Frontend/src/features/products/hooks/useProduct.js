@@ -1,19 +1,27 @@
-import { createProduct, viewProducts } from "../services/product.api";
+import { createProduct, viewAllProduct, viewProducts } from "../services/product.api.js";
 import { useDispatch } from 'react-redux'
-import { setSellerProducts } from '../state/product.slice.js'
+import { setAllProducts, setSellerProducts } from '../state/product.slice.js'
 
 export function useProduct() {
     const dispatch = useDispatch()
-    export async function handleCreateProduct(formdata) {
+
+    // Creates a new product by sending form data to the server
+    async function handleCreateProduct(formdata) {
         const response = await createProduct(formdata)
         return response.product
     }
 
-    export async function handleGetProduct() {
+    // Fetches all products belonging to the current seller
+    async function handleGetProduct() {
         const response = await viewProducts()
         dispatch(setSellerProducts(response.products))
         return response.products
     }
 
-    return { handleCreateProduct, handleGetProduct }
+    async function handleGetAllProducts() {
+        const response = await viewAllProduct()
+        dispatch(setAllProducts(response.productData))
+    }
+
+    return { handleCreateProduct, handleGetProduct, handleGetAllProducts }
 }

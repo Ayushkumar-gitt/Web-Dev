@@ -43,3 +43,12 @@ export async function viewProducts(request, response) {
 
 }
 
+export async function viewAllProducts(request, response) {
+    const productData = await productModel.find()
+
+    return response.status(200).json({
+        message: "Products fetched Successfully",
+        success: true,
+        productData
+    })
+}
